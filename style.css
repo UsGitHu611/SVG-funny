@@ -1,0 +1,44 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+}
+
+.wrapper{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    place-items: center;
+}
+
+.digits{
+    font-size: 25px;
+    fill: #fff;
+    font-weight: 700;
+    font-family: monospace;
+}
+
+#timer,
+#stop,
+#start{
+    cursor: pointer;
+    will-change: hover;
+    transition-duration: 1s;
+}
+
+#timer:hover,
+#stop:hover,
+#start:hover{
+    transform: translateY(1.5%);
+}
+
+.timer{
+    font-size: 110px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    fill: #000;
+    will-change: contents;
+}
