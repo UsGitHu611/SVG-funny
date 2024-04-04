@@ -6,13 +6,20 @@
 
 body{
     min-height: 100vh;
+    margin: 0;
+}
+
+ul, ul li{
+    list-style: none;
+    padding: 0;
 }
 
 .wrapper{
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .digits{
@@ -41,4 +48,38 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     fill: #000;
     will-change: contents;
+}
+
+
+.wrapper__digits-timer,
+.wrapper__clock-timer{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.clock-logs,
+.digits-logs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 700px;
+}
+
+.clock-logs li,
+.digits-logs li{
+    font-size: 26px;
+    animation: log 1.5s;
+}
+
+@keyframes log{
+    0%{
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
