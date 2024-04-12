@@ -6,6 +6,7 @@ const START_DIGITS_TIMER = document.querySelector('#start');
 const RESET_DIGITS_TIMER = document.querySelector('#stop');
 const LOG_CONTAINER_CLOCK = document.querySelector('.clock-logs');
 const LOG_CONTAINER_DIGITS = document.querySelector('.digits-logs');
+const { clientHeight, clientWidth } = document.querySelector('#mainCircle');
 
 let StartDigTimer;
 let StartCloclTimer;
@@ -19,6 +20,48 @@ let m = 0;
 let h = 0;
 
 
+const TEXT_OFFSET = (r, points, clientHeight, clientWidth, offsetX, offsetY) => {
+    let s = [];
+    let x, y;
+  
+    for (let i = 0; i < Math.PI * 2; i += (Math.PI * 2) / points) {
+      x = clientWidth / 2 + r * Math.sin(i) - offsetX;
+      y = clientHeight / 2 + r * Math.cos(i) - offsetY;
+      s.push({ x, y });
+    }
+    return s;
+};
+
+
+const DROWING_LINES_IN_CIRCLE = (amountLines, widthSvg, heightSvg) => {
+  let cordinates = [];
+  let x, y;  
+
+  for (let i = 0; i < Math.PI * 2; i += (Math.PI * 2) / amountLines) {
+    x = widthSvg / 2 + 200 * Math.sin(i);
+    y = heightSvg / 2 + 200 * Math.cos(i) - 50;
+    cordinates.push({ x, y });
+  }
+
+  const OFFSET = TEXT_OFFSET(220, 12,clientHeight, clientWidth, 21, 61);
+  
+  for (const [i,{ x, y }] of cordinates.entries()) {
+    
+    document.querySelector('#mainCircle').insertAdjacentHTML('beforeend', `
+    <g>
+        <foreignObject x="${OFFSET[i].x}" y="${OFFSET[i].y}" class="digits" width="40" height="40">
+            ${i + 1}
+        </foreignObject>
+        <circle
+            r="6"
+            transform="translate(${x} ${y})"
+            data-hour="${ i + 1 }"
+        />
+    </g>
+    `);
+  }
+
+}
 
 const INTERVAL_CLOCK_TIMER = () => {
     SECOND_ARROW.setAttribute('transform', `rotate(${i} 250 250)`);
@@ -51,15 +94,15 @@ const ADD_LOGS_TIMER_CLOCK = (logContainer, ...params) => {
     logContainer.insertAdjacentHTML('beforeend',`
         <li>
         <code>
-            ${JSON.stringify({ minutes : k - 25, second : j * 5 }, null, 2)}}
+            ${JSON.stringify({ minutes : k - 25, second : j * 5 }, null, 2)}
         <code/>
         </li>
     `);
 };
 
+DROWING_LINES_IN_CIRCLE(12, clientWidth, clientHeight)
 
 TIMER_CLOCK.addEventListener('click', () => {
-    console.log(isStartClockTimer);
     isStartClockTimer = !isStartClockTimer;
     isStartClockTimer ? (
         StartCloclTimer = clearInterval(StartCloclTimer),
@@ -68,16 +111,16 @@ TIMER_CLOCK.addEventListener('click', () => {
         clearInterval(StartCloclTimer),
         ADD_LOGS_TIMER_CLOCK(LOG_CONTAINER_CLOCK, j, k)
     )
-})
+});
 
 START_DIGITS_TIMER.addEventListener('click', () => {
     StartDigTimer = clearInterval(StartDigTimer);
     StartDigTimer = setInterval(INTERVAL_DIGITS_TIMER,1000);
-})
+});
 
 RESET_DIGITS_TIMER.addEventListener('click', () => {
     ADD_LOGS_TIMER_DIGITS(LOG_CONTAINER_DIGITS,h,m,s)
     TIMER_DIGITS.textContent = '00:00:00';
     s = 0; m = 0; h = 0;
     clearInterval(StartDigTimer);
-})
+});

@@ -23,10 +23,11 @@ ul, ul li{
 }
 
 .digits{
-    font-size: 25px;
-    fill: #fff;
+    font-size: 18px;
+    color: #fff;
     font-weight: 700;
-    font-family: monospace;
+    font-family: "JetBrains Mono";
+    text-align: center;
 }
 
 #timer,
@@ -72,6 +73,7 @@ ul, ul li{
     font-size: 26px;
     animation: log 1.5s;
 }
+
 
 @keyframes log{
     0%{

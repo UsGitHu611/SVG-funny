@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circle</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./main.js" defer></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+
+      <div class="wrapper__digits-timer">
+        <svg
+        viewBox="0 0 700 400"
+        width="550"
+        height="360"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+      <g id="start">
+        <rect width="50" height="15" x="520" y="90" fill="#000" rx="5" />
+        <rect width="30" height="30" x="530" y="95" fill="#000" />
+      </g>
+
+        <g id="stop">
+          <rect width="50" height="15" x="580" y="90" fill="#a61801" rx="5" />
+          <rect width="30" height="30" x="590" y="95" fill="#a61801" />
+        </g>
+
+        <g>
+          <rect
+            width="600"
+            height="250"
+            x="70"
+            y="125"
+            rx="15"
+            fill="#e9e9f9"
+            stroke="#000"
+            stroke-width="15"
+          />
+        </g>
+        <text x="120" y="290" class="timer">00:00:00</text>
+      </svg>
+
+      <ul class="digits-logs"></ul>
+      </div>
+
+      <div class="wrapper__clock-timer">
+        <svg
+        id="mainCircle"
+        viewBox="0 0 500 500"
+        width="500"
+        height="600"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="timer">
+          <rect x="200" y="-30" width="100" height="30" fill="#000" rx="10" />
+          <rect x="225" y="0" width="50" height="250" fill="#000" />
+        </g>
+        
+        <circle
+          fill="#000"
+          r="240"
+          stroke="#000"
+          stroke-width="3"
+          transform="translate(250, 250)"
+        />
+
+        <circle
+          id="innerCircle"
+          fill="#e3e3e5"
+          r="200"
+          stroke="#000"
+          stroke-width="3"
+          transform="translate(250, 250)"
+        />
+
+        <circle r="7" transform="translate(250, 250)" />
+
+        <circle r="4" fill="red" transform="translate(250, 250)" />
+
+        <g id="minArrow">
+          <polygon points="250, 65 255, 105 245, 105" />
+          <path d="M 250 250 L 250 100 " stroke="#000" stroke-width="4" />
+        </g>
+
+        <g id="secArrow">
+          <polygon points="250, 95 255, 135 245, 135" fill="red" />
+          <path d="M 250 250 L 250 130 " stroke="red" stroke-width="2.5" />
+        </g>
+
+      </svg>
+      
+      <ul class="clock-logs">
+      </ul>
+
+      </div>
+    </div>
+  </body>
+</html>
