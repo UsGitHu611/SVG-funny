@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>load</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./main.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <svg
+        width="500"
+        height="500"
+        viewBox="0 0 500 500"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+
+      <foreignObject x="225" y="220" width="50" height="10" class="proc">
+            <p>
+                0%
+            </p>
+      </foreignObject>
+
+        <circle
+          r="200"
+          transform="translate(250 250)"
+          stroke="red"
+          stroke-width="2"
+          fill="transparent"
+        />
+
+        <circle
+          r="100"
+          transform="translate(250 250)"
+          stroke="red"
+          stroke-width="2"
+          fill="transparent"
+        />
+
+        <circle
+          id="main"
+          r="150"
+          transform="translate(250 250)"
+          stroke-width="99"
+          fill="transparent"
+        />
+      </svg>
+
+      <div class="btn-container">
+        <button class="btn">
+        
+            <foreignObject class="letter s">
+                S
+            </foreignObject>
+    
+            <foreignObject class="letter t">
+                t
+            </foreignObject>
+    
+            <foreignObject class="letter a">
+                a
+            </foreignObject>
+    
+            <foreignObject class="letter r">
+                r
+            </foreignObject>
+    
+            <foreignObject class="letter t2">
+                t
+            </foreignObject>
+    
+          </button>
+    
+          <button class="reset">
+                <p>
+                    RESET
+                </p>
+          </button>
+      </div>
+    </div>
+  </body>
+</html>

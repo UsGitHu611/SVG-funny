@@ -1,0 +1,99 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+@scope(.proc) {
+    p{
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: inherit;
+    }
+}
+
+body{
+    background-color: #141715;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.letter{
+    display: inline-block;
+    margin: -5px;
+}
+
+.proc{
+    height: auto;
+    overflow: visible;
+    font-family: "JetBrains Mono";
+    font-size: 50px;
+    color: #fff;
+}
+
+.btn-container{
+    display: flex;
+    gap: 20px;
+}
+
+.btn,
+.reset{
+    background-color: transparent;
+    font-size: 22px;
+    font-family: "JetBrains Mono";
+    font-weight: 700;
+    color: aliceblue;
+    cursor: pointer;
+    padding: 5px 15px;
+    border: 2px solid currentColor;
+    max-width: 110px;
+}
+
+.btn{
+    width: 110px;
+    &:hover .s{ animation: animate-letter 160ms cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    &:hover .t{ animation: animate-letter 160ms 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    &:hover .a{ animation: animate-letter 160ms 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    &:hover .r{ animation: animate-letter 160ms 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    &:hover .t2{ animation: animate-letter 160ms 800ms cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+}
+
+.reset{
+    letter-spacing: 2px;
+    border-color: red;
+    color: red;
+}
+
+.main{ animation: spin 10s ease infinite; stroke: #000; }
+
+.reset-animation p{ animation: reset 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) both; }
+
+
+@keyframes spin {
+    from{ stroke-dashoffset: 2000; }
+    to{ stroke-dasharray: 1000; }
+}
+
+@keyframes reset {
+    10%, 90% { transform: translateX(-0.5px); }
+    20%, 80% { transform: translateX(1px); }
+    30%, 50%, 70% { transform: translateX(-2px); }
+    40%, 60% { transform: translateX(2px); }
+}
+
+@keyframes animate-letter {
+    0%{ transform: translateY(10px);}
+    100%{ transform: translateY(-5px); }
+}
