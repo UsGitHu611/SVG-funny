@@ -15,23 +15,44 @@
         viewBox="0 0 500 500"
         xmlns="http://www.w3.org/2000/svg"
       >
+        <foreignObject x="225" y="220" width="50" height="10" class="proc">
+          <p class="percent"> 0% </p>
+        </foreignObject>
 
-      <foreignObject x="225" y="220" width="50" height="10" class="proc">
-            <p>
-                0%
-            </p>
-      </foreignObject>
+        <ellipse
+          fill="rgba(255,255,255, .70)"
+          rx="13"
+          ry="13"
+          cx="225"
+          cy="235"
+        />
 
-        <circle
-          r="200"
-          transform="translate(250 250)"
-          stroke="red"
-          stroke-width="2"
-          fill="transparent"
+        <ellipse
+          fill="rgba(255,255,255, .45)"
+          rx="7"
+          ry="7"
+          cx="230"
+          cy="225"
+        />
+        
+        <path
+          d="M170 225 Q 190 170, 245 168"
+          stroke="rgba(255,255,255, .12)"
+          stroke-width="20"
+          stroke-linecap="round"
+          fill="transparent" 
+        />
+
+        <path
+          d="M328 280 Q 289 355, 215 325"
+          stroke="rgba(255,255,255, .25)"
+          stroke-width="22"
+          stroke-linecap="round"
+          fill="transparent" 
         />
 
         <circle
-          r="100"
+          r="200"
           transform="translate(250 250)"
           stroke="red"
           stroke-width="2"
@@ -43,40 +64,33 @@
           r="150"
           transform="translate(250 250)"
           stroke-width="99"
+          stroke-dasharray="1000"
+          stroke-dashoffset="1000"
+          stroke="#000"
           fill="transparent"
         />
+
+        <circle
+          id="glass"
+          r="100"
+          transform="translate(250 250)"
+          fill="transparent"
+        />
+        
       </svg>
 
       <div class="btn-container">
         <button class="btn">
-        
-            <foreignObject class="letter s">
-                S
-            </foreignObject>
-    
-            <foreignObject class="letter t">
-                t
-            </foreignObject>
-    
-            <foreignObject class="letter a">
-                a
-            </foreignObject>
-    
-            <foreignObject class="letter r">
-                r
-            </foreignObject>
-    
-            <foreignObject class="letter t2">
-                t
-            </foreignObject>
-    
-          </button>
-    
-          <button class="reset">
-                <p>
-                    RESET
-                </p>
-          </button>
+          <foreignObject class="letter s">S</foreignObject>
+          <foreignObject class="letter t">t</foreignObject>
+          <foreignObject class="letter a">a</foreignObject>
+          <foreignObject class="letter r">r</foreignObject>
+          <foreignObject class="letter t2">t</foreignObject>
+        </button>
+
+        <button class="reset">
+          <p>RESET</p>
+        </button>
       </div>
     </div>
   </body>
