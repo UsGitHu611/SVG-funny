@@ -9,14 +9,13 @@ BUTTON_TO_START_ANIMATION.addEventListener('click', () => {
     SPIN_FOR_ANIMATION.classList.add('main');
     
     INTERVAL = setInterval(() => {
-        PERCENT_LOADING.textContent = `${parseInt(PERCENT_LOADING.textContent) + 10}%`;
+        PERCENT_LOADING.textContent = `${parseInt(PERCENT_LOADING.textContent) + 1}%`;
 
-        if(PERCENT_LOADING.textContent === '100%') {
+        if(parseInt(PERCENT_LOADING.textContent) === 100) {
             SPIN_FOR_ANIMATION.classList.remove('main');    
             clearInterval(INTERVAL);
         }
-    }, 900);
-
+    }, 99);
 });
 
 

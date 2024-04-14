@@ -33,7 +33,6 @@ body {
   fill: rgba(255, 255, 255, 0.27);
 }
 
-
 .letter {
   display: inline-block;
   margin: -5px;
@@ -67,24 +66,27 @@ body {
 
 .btn {
   width: 110px;
+  .s,
+  .t,
+  .a,
+  .r,
+  .t2 {
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
   &:hover .s {
-    animation: animate-letter 160ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: animate-letter 160ms;
   }
   &:hover .t {
-    animation: animate-letter 160ms 200ms
-      cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: animate-letter 160ms 200ms;
   }
   &:hover .a {
-    animation: animate-letter 160ms 400ms
-      cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: animate-letter 160ms 400ms;
   }
   &:hover .r {
-    animation: animate-letter 160ms 600ms
-      cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: animate-letter 160ms 600ms;
   }
   &:hover .t2 {
-    animation: animate-letter 160ms 800ms
-      cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: animate-letter 160ms 800ms;
   }
 }
 
@@ -118,9 +120,6 @@ body {
   }
   62% {
     stroke: rgba(160, 255, 6, 0.918);
-  }
-  75% {
-    stroke: rgb(49, 221, 27);
   }
   100% {
     stroke-dashoffset: 2000;
@@ -156,4 +155,3 @@ body {
     transform: translateY(-5px);
   }
 }
-
